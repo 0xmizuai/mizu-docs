@@ -45,7 +45,14 @@
     {
       "group": "Architecture",
       "pages": [
-        "architecture/data-network",
+        {
+          "group": "MIZU Data Network",
+          "icon": "chart-network",
+          "pages": [
+            "architecture/data-network/architecture",
+            "architecture/data-network/nostr"
+          ]
+        },
         "architecture/data-workflow",
         "architecture/data-vm"
       ]
