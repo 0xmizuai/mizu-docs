@@ -37,6 +37,7 @@
     {
       "group": "Introduction",
       "pages": [
+        "introduction",
         "introduction/whyus",
         "introduction/mission-vision"
       ]

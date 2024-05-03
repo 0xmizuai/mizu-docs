@@ -4,4 +4,85 @@ description: 'TBD'
 icon: 'code'
 ---
 
-## Coming Soon
+The core data generation and processing architecture is powered by the Mizu Data Network. It is a modified version of the Nostr protocol for efficient communication. 
+
+## Nostr Protocol & Mizu Nostr++
+
+Nostr is a protocol, designed for simplicity and was originally created to enable a censorship-resistant global social network.  It operates on straightforward and adaptable 'event' objects, conveyed as plain JSON, and employs standard elliptic-curve cryptography for key management and authentication. The sole supported mode of transport is websocket connections from clients to relays, fostering ease of client and relay development and encouraging software diversity. By eschewing dependence on a limited set of trusted servers for data transfer and storage, Nostr demonstrates remarkable resilience. The protocol anticipates the potential disappearance of relays and empowers users to connect and publish to any number of relays, affording them the flexibility to switch between them as needed.
+
+
+Mizu AI recognize the Nostr protocol as a great way to communicate messages in a decentralized network that requires strong authentication, but relatively low state consistency compared to blockchains. Therefore, Mizu AI has tweaked the Nostr protocol as Nostr ++ to better fit the needs of communcation, dispatching, authentication, and coordination for the Mizu Data Network. 
+
+## The Canonical Event on Nostr ++
+Similar to the Nostr protocol, the standard format of Nostr++ events are encoded as plain Json types. 
+
+However, a few major changes include:
+1. Using `Sender` instead of plain `pubkey`.
+2. Stronger restriction on types of `tags` supported. (TBD)
+
+The `Sender` object is defined as enum that:
+
+```rust
+pub enum Sender {
+    SchnorrPubKey(Bytes32), // same `pubkey` as nostr protocol
+    EoaAddress(Address),
+    ContractAddress((u32, Address)), // chainid + address
+    Ens(Bytes32), // ens namehash
+}
+```
+
+While the encoding/decoding schema can be expressed as: 
+```
+num_encoder = (number: u32) => to_little_endian_bytes
+
+Sender::SchnorrPubKey(bytes) => [num_encoder(0), ...bytes]
+Sender::EoaAddress(addr) => [num_encoder(1), ...address]
+Sender::ContractAddress((chain_id, addr)) => [num_encoder(2), num_encoder(chain_id), ...address]
+Sender::Ens(bytes) => [num_encoder(3), ...address]
+```
+
+In summary, the canonical events on Nostr++ is expressed as: 
+
+```rust
+pub struct Event {
+    id: Bytes32, // in hex without leading 0x
+    sender: Sender,    
+    created_at: Timestamp, // u64
+    kind: u16,
+
+    tags: Vec<Vec<String>>,
+    content: String,
+    sig: Vec<u8>, // in hex without leading 0x
+}
+```
+
+## The Nostr++ Relay & Client Communication
+
+Nostr++ simplifies the Nostr protocol relay-client communication protocols.
+
+From Clients to Relays, the following commands are supported:
+1. ~ NIP-01 `["EVENT", <event JSON as defined above>]` to publish events.
+2. ~ NIP-01 `["REQ", <subscription_id>, <filters1>, <filters2>, ...]` to request events and subscript to new updates.
+3. ~ NIP-01 `["CLOSE", <subscription_id>]` to end previous subscriptions.
+4. ~ NIP-42 `["AUTH", <signed-event-json>]` to send to server including the `challenge` published by server
+
+From Relays to Clients, the following commands are supported:
+1. ~ NIP-01 `["EVENT", <subscription_id>, <event JSON as defined above>]` to send events requested by clients.
+2. ~ NIP-01 `["OK", <event_id>, <true|false>, <message>]` used to indicate acceptance or denial of an EVENT message.
+3. ~ NIP-01 `["EOSE", <subscription_id>]` used to indicate the end of stored events and the beginning of events newly received in real-time.
+4. ~ NIP-01 `["CLOSED", <subscription_id>, <message>]`, used to indicate that a subscription was ended on the server side.
+5. ~ NIP-01 `["NOTICE", <message>]`, used to send human-readable error messages or other things to clients.
+6. ~ NIP-42 `["AUTH", <challenge string>]` used to authenticate a valide connection from client by sending a random challenge first.
+
+## The Nostr++ Authentication
+Mizu Nostr++ authenticate clients and events integrity much stricter and more flexible than the Nostr Protocol in the following ways: 
+1. Event IDs are always strictly checked. Mismatching IDs will always results in events discarded.
+2. Event integrity validation is build around the new `Sender` field in the canonical event format.
+3. Arbitrary event `kinds` are reserved for specific use-cases and follow strict validation logic. 
+4. The relay checks for permissions based on arbitrary event kinds on four different hook: `AuthOnDbWrite`, `AuthOnDbRead`, `AuthOnRelayBroadcastSend`, `AuthOnRelayBroadcastReceive`, to enable granular access control on each connections on relay ServiceWorkerRegistration. 
+
+The new `Sender` checks:
+1. `SchnorrPubKey` follows the same schnorr signature validation algorithmn. 
+2. `EoaAddress` follows the typical `EIP 191` signature validation paradigm.
+3. `ContractAddress` follows the `EIP 1271` signature validation paradigm.
+4. `Ens` will first resolves the address on Ethereum Mainnet and follows the same validation logic as `EoaAddress`.
