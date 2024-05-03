@@ -37,10 +37,7 @@
     {
       "group": "Introduction",
       "pages": [
-        "introduction",
-        "introduction/data-scarcity",
-        "introduction/data-linage",
-        "introduction/web3-synthetic-data",
+        "introduction/whyus",
         "introduction/mission-vision"
       ]
     },

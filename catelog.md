@@ -4,11 +4,8 @@ X
 discord
 =========
 
-Introduction (Problem & Solutions)
-- Introduction
-- The Data Scarcity Problem 
-- The Data Linage Problem
-- Web3 & Synthetic Data 
+Introduction
+- Why MIZU
 - Mission & Vision
 
 Arch
