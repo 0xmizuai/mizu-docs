@@ -4,4 +4,34 @@ description: 'TBD'
 icon: 'code'
 ---
 
-## Coming Soon
+## Overview
+Mizu Data VM is a specialized virtual machine tailored for the generation, processing, and aggregation of data, with its unique gas-metered approach. Mizu Data VM operates on a consumption-based model, where resources are allocated and consumed in proportion to the workload's demand.
+
+1. **Gas-Metered Model**: Mizu Data VM operates on a gas-metered model, meaning that resources are allocated based on the workload's consumption. This approach ensures efficient resource utilization, as resources are dynamically allocated and de-allocated according to the workload's needs.
+
+2. **Data Generation**: Mizu Data VM is equipped with capabilities for generating data. This functionality allows users to run data generation processes to generate synthetic datasets.
+
+3. **Data Processing**: Mizu Data VM provides robust data processing capabilities, enabling users to perform various operations on the generated data. This may include tasks such as data transformation, analysis, cleansing, and enrichment, among others.
+
+4. **Data Aggregation**: In addition to processing data, Mizu Data VM facilitates data aggregation, allowing users to consolidate and summarize data from multiple sources. Aggregation operations may involve grouping data, calculating aggregates and generating reports or summaries.
+
+5. **Scalability and Efficiency**: Mizu Data VM is designed to scale dynamically to accommodate fluctuating workloads efficiently.
+
+6. **Flexibility and Customization**: Mizu Data VM offers flexibility and customization options to meet diverse data processing requirements. Users can tailor the VM environment to their specific needs, leveraging a range of tools, libraries, and frameworks to optimize data processing workflows.
+
+## Supported `OPCODE` (TBD)
+A draft version of supported `OPCODE` includes:
+
+- `SUMMARIZE <inputs> <outputs>`: summarize content from inputs to outputs.
+- `EXPAND <inputs> <outputs>` expand on the topic from inputs to outputs.
+- `BRAINSTORM <topic> <size> <outputs>` brainstorm relevant terms from `topic`, with `size` amount of times, and write to outputs.
+
+- `OUTPUT_JSON <[fields]>` instruct the VM to write outputs as JSON arrays with the `fields`.
+- `OUTPUT_CSV <[cols]>` instruct the VM to write outputs as CSV files with the `cols` as column names.
+- `OUTPUT_BIN` instruct the VM to write outputs as binary files (i.e. images, videos, etc.)
+
+- `MEMORY_OUTPUT` indicates that the VM outputs are temporary and will be discarded once the workflow is finished. 
+- `STORAGE_OUTPUT <epoch>` indicated that the VM outputs need to be persisted on the Data Avalibility layer for `<epoch>` length of time.
+
+## Summary 
+In summary, Mizu Data VM is a versatile and efficient platform for data generation, processing, and aggregation, distinguished by its gas-metered approach and ability to dynamically adapt to workload demands.
