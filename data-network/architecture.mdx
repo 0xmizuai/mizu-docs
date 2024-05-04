@@ -4,7 +4,9 @@ description: 'The very first decentralized self-service synthetic data generatio
 icon: 'circle-nodes'
 ---
 
+## Overview
 
+The MIZU Data Network is a decentralized platform designed to enable developers to deploy and run data pipelines in a transparent, verifiable, and secure manner. The network is composed of three main components: the DePIN Network, the Verifiable Inference Network, and the AVS (Attestation, Verification, and Slashing) Layers.
 
 <img
   className="block dark:hidden"
@@ -17,4 +19,45 @@ icon: 'circle-nodes'
   alt="Hero Dark"
 />
 
-## Coming soon
+## Components
+
+### 1. DePIN Network and DataVM
+
+The core of the MIZU Data Network is the DePIN (Decentralized Pipeline Network), where all nodes run a DataVM (Data Virtual Machine). The DataVM is similar to the Ethereum Virtual Machine (EVM) but is designed specifically for deploying and running data pipelines instead of smart contracts.
+
+Developers can deploy their data pipelines to the DataVM, which compiles them into atomic data operations or data tasks. These tasks are then picked up and executed by MIZU data nodes within the network. The DePIN Network maintains the execution and state of each data pipeline, ensuring that the processing is carried out in a decentralized and transparent manner.
+
+### 2. Data Engine
+The Data Engine is a critical component of the MIZU Data Network to do the real data generation work. We will support two types of data engines: the rule-based and the LLM-based.
+
+#### 2.1 Rule-based Engine
+
+The rule-based simulator enables developers to generate synthetic data following some rules. This feature is particularly useful for creating simulated environments and datasets. For example, game engines like unity and unreal engine can be used to generate simulated street view images or 3D models. Tesla's Full Self-Driving (FSD) V12 heavily relies on simulators to generate street view pictures for training their autonomous driving models.
+
+#### 2.2 LLM-based Engine
+
+Developers can also call Large Language Models (LLMs) to generate, process, or annotate data directly. One example model/agent that can be used for this purpose is [MetaGPT](https://github.com/geekan/MetaGPT). There are multiple projects are working on decentralized inference network(e.g. ritual, jason.ai) which MIZU could integrate with.
+
+#### 2.3 Data Verification
+
+For now we are running our own centralized inference network and simualtor services. All generated results(from inference or simulatora) will be signed by a gateway to ensure that the results are trustable and verifiable. In the future, the network plans to integrate a distributed inference or simulator network to further enhance decentralization and scalability.
+
+### 3. AVS Layers
+
+The security of the MIZU Data Network is guaranteed by the AVS (Attestation, Verification, and Slashing) Layers. The network follows a standard optimistic strategy for fraud proofs, separating the network nodes into two roles: executors and validators.
+
+Executors are responsible for running data workflows, while validators verify the workflow executions. All MIZU nodes must stake tokens to join the network and can earn yield based on their staking. Users pay gas fees to executors to run their workflows.
+
+The network assumes that all executors are honest, but they are required to generate proofs (merkle proofs or zero-knowledge proofs) for every workflow step and store these proofs on-chain. Anyone can request to challenge any executed step, triggering all validators to re-run the step and vote to slash the staking of malicious executors.
+
+### 4. Data Storage Layer
+
+The Data Storage Layer is responsible for hosting all intermediary results and outputs of data pipelines, such as proofs and final datasets. This layer can be implemented using a Decentralized Autonomous (DA) layer, such as ZeroGravity or EigenLayer.
+
+To optimize gas costs, the current design stores proof headers on-chain while storing the proof bodies in the DA layer. The final generated datasets are also hosted in the DA layer, making it easy for users to download, view, or replicate the data.
+
+Each dataset is assigned a globally unique identifier, which can be referenced across multiple storage layers. This enables seamless integration and interoperability between different components of the MIZU Data Network and external systems.
+
+## Conclusion
+
+The MIZU Data Network provides a decentralized, secure, and verifiable platform for deploying and running data pipelines. By combining the DePIN Network, Verifiable Inference Network, AVS Layers, and Data Storage Layer, the network enables developers to process and analyze data in a transparent and trustless manner, while ensuring the integrity and security of the data workflows through a robust verification and slashing mechanism. The addition of the Data Storage Layer further enhances the network's capabilities by providing efficient storage and retrieval of proofs and datasets, making them easily accessible to users and other systems.
