@@ -4,7 +4,7 @@ description: 'The node communication protocol'
 icon: 'tower-cell'
 ---
 
-The core data generation and processing architecture is powered by the Mizu Data Network. It is a modified version of the Nostr protocol for efficient communication. 
+We use NOSTR++, which is built on top of NOSTR, as the communication protocol to transfer state and temporary data between MIZU nodes.
 
 ## Nostr++ Protocol
 
@@ -13,10 +13,11 @@ Nostr is a protocol, designed for simplicity and was originally created to enabl
 Mizu AI recognize the Nostr protocol as a great way to communicate messages in a decentralized network that requires strong authentication, but relatively low state consistency compared to blockchains. Therefore, Mizu AI has tweaked the Nostr protocol as Nostr ++ to better fit the needs of communcation, dispatching, authentication, and coordination for the Mizu Data Network. 
 
 ## The Canonical Event on Nostr ++
+
 Similar to the Nostr protocol, the standard format of Nostr++ events are encoded as plain Json types. 
 
 However, a few major changes include:
-1. Using `Sender` instead of plain `pubkey`.
+1. Using `sender` instead of plain `pubkey`.
 2. Stronger restriction on types of `tags` supported. (TBD)
 
 The `Sender` object is defined as enum that:

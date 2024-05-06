@@ -6,7 +6,7 @@ icon: 'circle-nodes'
 
 ## Overview
 
-The MIZU Data Network is a decentralized platform designed to enable developers to deploy and run data pipelines in a transparent, verifiable, and secure manner. The network is composed of three main components: the DePIN Network, the Verifiable Inference Network, and the AVS (Attestation, Verification, and Slashing) Layers.
+The MIZU Data Network is the very first decentralized data generation network, designed to enable developers to deploy and run data pipelines in a transparent, verifiable, and secure manner. The network is composed of three main components: the Core Network, the Verifiable Inference Network, and the AVS (Attestation, Verification, and Slashing) Layers.
 
 <img
   className="block dark:hidden"
@@ -21,16 +21,17 @@ The MIZU Data Network is a decentralized platform designed to enable developers 
 
 ## Components
 
-### 1. DePIN Network and DataVM
+### 1. The Core Network
 
-The core of the MIZU Data Network is the DePIN (Decentralized Pipeline Network), where all nodes run a DataVM (Data Virtual Machine). The DataVM is similar to the Ethereum Virtual Machine (EVM) but is designed specifically for deploying and running data pipelines instead of smart contracts.
+The core of the MIZU Data Network is a DePIN network where all nodes run a DataVM (Data Virtual Machine). The DataVM is similar to the Ethereum Virtual Machine (EVM) but is designed specifically for deploying and running data pipelines instead of smart contracts.
 
 Developers can deploy their data pipelines to the DataVM, which compiles them into atomic data operations or data tasks. These tasks are then picked up and executed by MIZU data nodes within the network. The DePIN Network maintains the execution and state of each data pipeline, ensuring that the processing is carried out in a decentralized and transparent manner.
 
 ### 2. Data Engine
+
 The Data Engine is a critical component of the MIZU Data Network to do the real data generation work. We will support two types of data engines: the rule-based and the LLM-based.
 
-#### 2.1 Rule-based Engine
+#### 2.1 Rule-based Simulator
 
 The rule-based simulator enables developers to generate synthetic data following some rules. This feature is particularly useful for creating simulated environments and datasets. For example, game engines like unity and unreal engine can be used to generate simulated street view images or 3D models. Tesla's Full Self-Driving (FSD) V12 heavily relies on simulators to generate street view pictures for training their autonomous driving models.
 
@@ -42,13 +43,24 @@ Developers can also call Large Language Models (LLMs) to generate, process, or a
 
 For now we are running our own centralized inference network and simualtor services. All generated results(from inference or simulatora) will be signed by a gateway to ensure that the results are trustable and verifiable. In the future, the network plans to integrate a distributed inference or simulator network to further enhance decentralization and scalability.
 
-### 3. AVS Layers
+### 3. The AVS Layer
 
 The security of the MIZU Data Network is guaranteed by the AVS (Attestation, Verification, and Slashing) Layers. The network follows a standard optimistic strategy for fraud proofs, separating the network nodes into two roles: executors and validators.
 
 Executors are responsible for running data workflows, while validators verify the workflow executions. All MIZU nodes must stake tokens to join the network and can earn yield based on their staking. Users pay gas fees to executors to run their workflows.
 
 The network assumes that all executors are honest, but they are required to generate proofs (merkle proofs or zero-knowledge proofs) for every workflow step and store these proofs on-chain. Anyone can request to challenge any executed step, triggering all validators to re-run the step and vote to slash the staking of malicious executors.
+
+<img
+  className="block dark:hidden"
+  src="/images/avs-light.png"
+  alt="Hero Light"
+/>
+<img
+  className="hidden dark:block"
+  src="/images/avs-dark.png"
+  alt="Hero Dark"
+/>
 
 ### 4. Data Storage Layer
 
