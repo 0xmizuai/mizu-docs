@@ -1,0 +1,9 @@
+[build]
+builder = "nixpacks"
+buildCommand = "npm i -g mintlify"
+
+[deploy]
+startCommand = "mintlify dev"
+healthcheckPath = "/"
+healthcheckTimeout = 100
+restartPolicyType = "never"
