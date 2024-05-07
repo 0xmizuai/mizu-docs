@@ -19,6 +19,10 @@ The DataVM executes the compiled data operations, ensuring deterministic executi
 ### Proof Generation and Verification
 During the execution of data operations, the system generates proofs for each operation, leveraging the deterministic nature of the execution. These proofs are stored securely for later verification, ensuring the integrity and correctness of the pipeline execution.
 
+### Task Dispatching & Parrallel Processing
+
+In the MIZU data pipeline system, users can select the number of nodes to employ for running data pipelines that generate large amounts of data. The orchestrator utilizes a global task dispatching algorithm to split the task and assign it to the appropriate nodes, considering factors such as computational resources, workload, and pipeline requirements. The assigned nodes execute their portions of the data pipeline independently, generating results within a specified time frame. To ensure integrity and reliability, the system incorporates a verification and challenge mechanism, where users can request a challenge if a node fails to deliver results on time, resulting in token slashing and task reassignment to another available node.
+
 ## Challenges in Building High-Quality Data Pipelines
 
 ### Data Storage
@@ -35,4 +39,4 @@ In a distributed computing environment, data is processed in parallel by multipl
 
 ## Example Data Pipelines
 
-Coming soon
+This could be found at the cookbook.
