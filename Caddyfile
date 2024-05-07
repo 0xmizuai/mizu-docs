@@ -1,0 +1,3 @@
+docs.voda.build {
+    reverse_proxy :3000
+}
