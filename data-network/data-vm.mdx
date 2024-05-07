@@ -19,15 +19,14 @@ Mizu Data VM is a specialized virtual machine tailored for the generation, proce
 
 6. **Flexibility and Customization**: Mizu Data VM offers flexibility and customization options to meet diverse data processing requirements. Users can tailor the VM environment to their specific needs, leveraging a range of tools, libraries, and frameworks to optimize data processing workflows.
 
-## Supported `OPCODE` (TBD)
+## Supported `OPCODE` (In Progress)
+
 A draft version of supported `OPCODE` includes:
 
-- `INFERENCE <model> <prompt> <outputs>`: do Inference per prompt input
+- `INFERENCE <model> <prompt> <outputs>`: do inference per prompt input
 
-- `LOAD_LOCAL` load data from local memory
-- `STORE_LOCAL` indicates that the VM outputs are temporary and will be discarded once the workflow is finished. 
-- `LOAD_GLOBAL <epoch>` indicated that the VM outputs need to be persisted on the Data Avalibility layer for `<epoch>` length of time.
+- `LOAD_LOCAL <address>` load data from local memory
+- `STORE_LOCAL <epoch>` indicates that the VM outputs are temporary and will be discarded once the workflow is finished.
+
+- `LOAD_GLOBAL <address>` load data from global storage, could be DA layer 
 - `STORE_GLOBAL <epoch>` indicated that the VM outputs need to be persisted on the Data Avalibility layer for `<epoch>` length of time.
-
-## Summary 
-In summary, Mizu Data VM is a versatile and efficient platform for data generation, processing, and aggregation, distinguished by its gas-metered approach and ability to dynamically adapt to workload demands.
