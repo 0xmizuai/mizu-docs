@@ -5,6 +5,8 @@ icon: 'timeline'
 ---
 
 ## Data Pipeline Structure
+
+### Two-phase Design
 Each data pipeline consists of two primary phases:
 
 1. **Data Generation Phase**: This phase utilizes data engines to produce data based on input parameters, such as prompts or simulator settings. The system provides a flexible interface to integrate with different data engines seamlessly.
@@ -13,8 +15,6 @@ Each data pipeline consists of two primary phases:
 
 ### DataVM and Pipeline Compilation
 The data pipeline system compiles each pipeline into atomic data operations that are interpretable and executable by the DataVM. These operations are designed to be deterministic, enabling proof generation and verification. One of the most critical data operations is "inference," which involves calling external hosted LLMs and obtaining signed inference results.
-
-The DataVM executes the compiled data operations, ensuring deterministic execution and facilitating proof generation and verification. It also interacts with external LLM services for inference operations and retrieves signed results.
 
 ### Proof Generation and Verification
 During the execution of data operations, the system generates proofs for each operation, leveraging the deterministic nature of the execution. These proofs are stored securely for later verification, ensuring the integrity and correctness of the pipeline execution.
