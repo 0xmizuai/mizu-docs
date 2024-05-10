@@ -48,7 +48,7 @@
         "data-network/architecture",
         "data-network/nostr",
         {
-          "group": "Data Pipeline",
+          "group": "MIZU Data Pipeline",
           "icon": "waveform-lines",
           "pages": [
             "data-network/data-pipelines",
