@@ -4,13 +4,13 @@ description: 'The node communication protocol'
 icon: 'tower-cell'
 ---
 
-We use NOSTR++, which is built on top of NOSTR, as the communication protocol to transfer state and temporary data between MIZU nodes.
+We use NOSTR++, which is built on top of NOSTR but fully compatible with the Ethereum Account System, as the communication protocol to transfer state and temporary data between MIZU nodes.
 
 ## Nostr++ Protocol
 
-Nostr is a protocol, designed for simplicity and was originally created to enable a censorship-resistant global social network.  It operates on straightforward and adaptable 'event' objects, conveyed as plain JSON, and employs standard elliptic-curve cryptography for key management and authentication. The sole supported mode of transport is websocket connections from clients to relays, fostering ease of client and relay development and encouraging software diversity. By eschewing dependence on a limited set of trusted servers for data transfer and storage, Nostr demonstrates remarkable resilience. The protocol anticipates the potential disappearance of relays and empowers users to connect and publish to any number of relays, affording them the flexibility to switch between them as needed.
+Nostr is a protocol, designed for simplicity and was originally created to enable a censorship-resistant global social network. It operates on straightforward and adaptable 'event' objects, conveyed as plain JSON, and employs standard elliptic-curve cryptography for key management and authentication. The sole supported mode of transport is websocket connections from clients to relays, fostering ease of client and relay development and encouraging software diversity. By eschewing dependence on a limited set of trusted servers for data transfer and storage, Nostr demonstrates remarkable resilience. The protocol anticipates the potential disappearance of relays and empowers users to connect and publish to any number of relays, affording them the flexibility to switch between them as needed.
 
-Mizu AI recognize the Nostr protocol as a great way to communicate messages in a decentralized network that requires strong authentication, but relatively low state consistency compared to blockchains. Therefore, Mizu AI has tweaked the Nostr protocol as Nostr ++ to better fit the needs of communcation, dispatching, authentication, and coordination for the Mizu Data Network. 
+MIZU AI recognizes the Nostr protocol as a great way to communicate messages in a decentralized network that requires strong authentication, but relatively low state consistency compared to blockchains. Therefore, Mizu AI has tweaked the Nostr protocol as Nostr ++ to better fit the needs of communication, dispatching, authentication, and coordination for the Mizu Data Network. 
 
 ## The Canonical Event on Nostr ++
 

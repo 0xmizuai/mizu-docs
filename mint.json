@@ -47,13 +47,21 @@
       "pages": [
         "data-network/architecture",
         "data-network/nostr",
-        "data-network/data-workflow",
+        {
+          "group": "MIZU Data Pipeline",
+          "icon": "waveform-lines",
+          "pages": [
+            "data-network/data-pipelines",
+            "data-network/e2e-workflow"
+          ]
+        },
         "data-network/data-vm"
       ]
     },
     {
       "group": "Cookbook",
       "pages": [
+        "cookbook/marketplace",
         "cookbook/synthetic-persona",
         "cookbook/data-pipeline"
       ]
