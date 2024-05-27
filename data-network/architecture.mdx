@@ -1,12 +1,12 @@
 ---
 title: 'Architecture'
-description: 'The very first decentralized self-service synthetic data generation network'
+description: 'The decentralized data generation and validation network'
 icon: 'circle-nodes'
 ---
 
 ## Overview
 
-The MIZU Data Network is the very first decentralized data generation network, designed to enable developers to deploy and run data pipelines in a transparent, verifiable, and secure manner. The network is composed of three main components: the Core Network, the Verifiable Inference Network, and the AVS (Attestation, Verification, and Slashing) Layers.
+The MIZU Data Network is designed to enable developers to deploy and run LLM-driven data workflows in a transparent, verifiable, and secure manner. The network is composed of three main components: the core network, the trusted data engine, and the AVS.
 
 <img
   className="block dark:hidden"
@@ -23,13 +23,15 @@ The MIZU Data Network is the very first decentralized data generation network, d
 
 ### 1. The Core Network
 
-The core of the MIZU Data Network is a DePIN network where all nodes run a DataVM (Data Virtual Machine). The DataVM is similar to the Ethereum Virtual Machine (EVM) but is designed specifically for deploying and running data pipelines instead of smart contracts.
+The core of the MIZU Data Network is a decentralized network where all nodes run a DataVM (Data Virtual Machine). The DataVM is similar to the Ethereum Virtual Machine (EVM) but is designed specifically for deploying and running data workflows instead of smart contracts.
 
-Developers can deploy their data pipelines to the DataVM, which compiles them into atomic data operations or data tasks. These tasks are then picked up and executed by MIZU data nodes within the network. The DePIN Network maintains the execution and state of each data pipeline, ensuring that the processing is carried out in a decentralized and transparent manner.
+MIZU will develop and release the very first workflow, which is a simple inference operation to generate data and validate it against the targeted repo. Users will be able to interact with the workflow by providing the prompt and specifying the target repo as input.
 
-### 2. Data Engine
+Developers can deploy and run customized data workflows as well, which will be compiled to atomic data operations or data tasks. These tasks are then picked up and executed by MIZU data nodes within the network. The Network maintains the execution and state of each data workflow, ensuring that the processing is carried out in a decentralized and transparent manner.
 
-The Data Engine is a critical component of the MIZU Data Network to do the real data generation work. We will support two types of data engines: the rule-based and the LLM-based.
+### 2. Trusted Data Engine
+
+The Data Engine is a critical component of the MIZU Data Network to do the real data generation and validation work. We will support two types of data engines: the rule-based and the LLM-based.
 
 #### 2.1 Rule-based Simulator
 
@@ -39,7 +41,7 @@ The rule-based simulator enables developers to generate synthetic data following
 
 Developers can also call Large Language Models (LLMs) to generate, process, or annotate data directly. One example model/agent that can be used for this purpose is [MetaGPT](https://github.com/geekan/MetaGPT). There are multiple projects are working on decentralized inference network(e.g. ritual) which MIZU could integrate with.
 
-#### 2.3 Data Verification
+#### 2.3 Verifiable Inference Result
 
 For now we are running our own centralized inference network and simualtor services. All generated results(from inference or simulatora) will be signed by a gateway to ensure that the results are trustable and verifiable. In the future, the network plans to integrate a distributed inference or simulator network to further enhance decentralization and scalability.
 
@@ -62,9 +64,9 @@ The network assumes that all executors are honest, but they are required to gene
   alt="Hero Dark"
 />
 
-### 4. Data Storage Layer
+## Data Storage
 
-The Data Storage Layer is responsible for hosting all intermediary results and outputs of data pipelines, such as proofs and final datasets. This layer can be implemented using a Decentralized Autonomous (DA) layer, such as ZeroGravity or EigenLayer.
+The Data Storage Layer is responsible for hosting all intermediary results and outputs of data workflows, such as proofs and final datasets. This layer can be implemented using a Decentralized Autonomous (DA) layer, such as ZeroGravity or EigenLayer.
 
 To optimize gas costs, the current design stores proof headers on-chain while storing the proof bodies in the DA layer. The final generated datasets are also hosted in the DA layer, making it easy for users to download, view, or replicate the data.
 
@@ -72,4 +74,4 @@ Each dataset is assigned a globally unique identifier, which can be referenced a
 
 ## Conclusion
 
-The MIZU Data Network provides a decentralized, secure, and verifiable platform for deploying and running data pipelines. By combining the DePIN Network, Verifiable Inference Network, AVS Layers, and Data Storage Layer, the network enables developers to process and analyze data in a transparent and trustless manner, while ensuring the integrity and security of the data workflows through a robust verification and slashing mechanism. The addition of the Data Storage Layer further enhances the network's capabilities by providing efficient storage and retrieval of proofs and datasets, making them easily accessible to users and other systems.
+The MIZU Data Network provides a decentralized, secure, and verifiable platform for deploying and running data workflows. By combining the DePIN Network, Verifiable Inference Network, AVS Layers, and Data Storage Layer, the network enables developers to process and analyze data in a transparent and trustless manner, while ensuring the integrity and security of the data workflows through a robust verification and slashing mechanism. The addition of the Data Storage Layer further enhances the network's capabilities by providing efficient storage and retrieval of proofs and datasets, making them easily accessible to users and other systems.

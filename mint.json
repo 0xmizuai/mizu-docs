@@ -54,7 +54,7 @@
       "group": "MIZU Data Network",
       "pages": [
         "data-network/architecture",
-        "data-network/data-pipelines",
+        "data-network/workflow",
         "data-network/data-vm",
         "data-network/nostr"
       ]
@@ -63,6 +63,7 @@
       "group": "Cookbook",
       "pages": [
         "cookbook/data-repo",
+        "cookbook/data-bounty",
         "cookbook/marketplace"
       ]
     },
