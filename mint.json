@@ -43,27 +43,28 @@
       ]
     },
     {
+      "group": "MIZU Data Repo",
+      "pages": [
+        "data-repo/data-repo",
+        "data-repo/data-centric-app",
+        "data-repo/data-generation-validation"
+      ]
+    },
+    {
       "group": "MIZU Data Network",
       "pages": [
         "data-network/architecture",
-        "data-network/nostr",
-        {
-          "group": "MIZU Data Pipeline",
-          "icon": "waveform-lines",
-          "pages": [
-            "data-network/data-pipelines",
-            "data-network/e2e-workflow"
-          ]
-        },
-        "data-network/data-vm"
+        "data-network/workflow",
+        "data-network/data-vm",
+        "data-network/nostr"
       ]
     },
     {
       "group": "Cookbook",
       "pages": [
-        "cookbook/marketplace",
-        "cookbook/synthetic-persona",
-        "cookbook/data-pipeline"
+        "cookbook/data-repo",
+        "cookbook/data-bounty",
+        "cookbook/marketplace"
       ]
     },
     {
