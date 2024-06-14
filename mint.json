@@ -2,17 +2,20 @@
   "$schema": "https://mintlify.com/schema.json",
   "name": "Mizu Network",
   "logo": {
-    "dark": "/logo/logo.png",
-    "light": "/logo/logo.png"
+    "dark": "/logo/logo-dark.png",
+    "light": "/logo/logo-light.png"
+  },
+  "modeToggle": {
+    "default": "light",
+    "isHidden": true
   },
   "favicon": "/favicon.svg",
   "colors": {
-    "primary": "#0D9373",
-    "light": "#07C983",
-    "dark": "#0D9373",
+    "primary": "#2c8394",
+    "light": "#1CDBFF",
     "anchors": {
-      "from": "#0D9373",
-      "to": "#07C983"
+      "from": "#2c8394",
+      "to": "#1CDBFF"
     }
   },
   "topbarLinks": [],
@@ -30,7 +33,7 @@
     {
       "name": "Twitter",
       "icon": "twitter",
-      "url": "https://x.com/0xmizuai"
+      "url": "https://x.com/0xmizu_ai"
     }
   ],
   "navigation": [
