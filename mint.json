@@ -41,8 +41,8 @@
       "group": "Introduction",
       "pages": [
         "overview",
-        "introduction/whyus",
-        "introduction/mission-vision"
+        "introduction/open-data",
+        "introduction/what-is-mizu"
       ]
     },
     {
@@ -54,7 +54,7 @@
       ]
     },
     {
-      "group": "MIZU Data Network",
+      "group": "MIZU Data Processing Network",
       "pages": [
         "data-network/architecture",
         "data-network/workflow",
