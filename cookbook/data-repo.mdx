@@ -1,7 +1,43 @@
 ---
-title: 'Build A Data Repo'
-description: 'Build your first data repo in 5 mins'
+title: 'Example App: Dolma Data Repos'
+description: 'We are building first batch of data repos from the first open source datasets Dolma v1.7'
 icon: 'code'
 ---
 
-## Coming Soon
+## Motivation
+
+As a initiative to promote MIZU’s data repository, we are creating the first batch of data repos by migrating dolma to MIZU. [Dolma](https://github.com/allenai/dolma) is the very first open datasets used by [OpenLM](https://allenai.org/olmo). [[HuggingFace](https://huggingface.co/datasets/allenai/dolma), [Arxiv](https://arxiv.org/abs/2402.00159)]. There are 3 trillion tokens in the datasets, from which the [OLMo-7B](https://huggingface.co/allenai/OLMo-7B) is trained.
+
+MIZU is transforming the Dolma datasets into numerous small data repositories based on data categories and encouraging the community to maintain and contribute more data to them. This approach converts the giant static datasets into a dynamic and self-evolving entity, from which we can easily build new versions of Dolma datasets.
+
+The first batch of data repos has been created in our network and you can check the details at [our demo app](https://app.mizu.global).
+
+## Workflow
+
+<img
+  className="block dark:hidden"
+  src="/images/dolma-workflows.png"
+  alt="Hero Light"
+/>
+
+The entire process can be separated into three independent workflows:
+
+1. Pre-processing workflow: Dump data into the global storage layer (currently Cloudflare R2, with plans to integrate decentralized storage solutions such as 0G and OnMachina).
+2. Repo creation workflow: Generate categories and create corresponding repositories.
+3, Data processing workflow: Classify and import the data into repositories after they are created.
+
+## Data Discovery For All AI Applications
+
+MIZU streamlines the process of finding relevant data for AI applications by leveraging our expanding network of open-source data and onboarded repositories. AI developers can simply describe their data requirements, and MIZU's data discovery workflow will match these needs with appropriate datasets from our repositories.
+The AI application development process using MIZU typically follows these steps:
+
+1. The developer creates a repository with specific data requirements and initiates the data discovery workflow.
+2. MIZU's workflow identifies and filters suitable data from existing repositories, committing it to the developer's destination repository. This provides an initial dataset for the developer to begin work.
+3. Using this initial data, the developer builds and tests the first version of their AI application.
+4. The developer and community can then iteratively improve the application by contributing additional relevant data to the repository.
+
+As MIZU's data resources grow, it aims to become a primary data source for a wide range of AI applications.
+
+## Next Steps
+
+Our focus moving forward is to significantly expand MIZU's data network. This expansion will involve importing a diverse range of open-source datasets and creating new data repositories to broaden our coverage. Our long-term vision is ambitious: we aim to establish MIZU as the world's largest decentralized open-source data platform. By achieving this goal, MIZU will become an invaluable foundational resource, powering AI applications across numerous domains and industries.
