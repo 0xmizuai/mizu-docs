@@ -38,12 +38,6 @@ Executors are responsible for running data workflows, while validators verify th
 
 The network assumes that all executors are honest, but they are required to generate proofs (merkle proofs or zero-knowledge proofs) for every workflow step and store these proofs on-chain. Anyone can request to challenge any executed step, triggering all validators to re-run the step and vote to slash the staking of malicious executors.
 
-<img
-  className="block dark:hidden"
-  src="/images/avs-light.png"
-  alt="Hero Light"
-/>
-
 ## Data Storage
 
 The Data Storage Layer is responsible for hosting all intermediary results and outputs of data workflows, such as proofs and final datasets. This layer can be implemented using a Decentralized Autonomous (DA) layer, such as ZeroGravity.
