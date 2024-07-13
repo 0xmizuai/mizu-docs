@@ -1,0 +1,51 @@
+---
+title: 'Mining With Edge Devices'
+description: 'Process data with your laptop and mobile devices and earn MIZU tokens'
+icon: 'pickaxe'
+---
+
+## Why Edge network
+
+Edge networks offer several compelling advantages for data processing:
+
+- **Low Cost**: Utilizing edge networks is very cheap because it eliminates the need for specialized, expensive devices, making it economically feasible to deploy and scale the network.
+- **High Throughput**: By engaging a million devices, edge networks can effortlessly process terabytes to petabytes of data daily, ensuring efficient and swift data handling.
+- **Stronger Community**: Edge networks foster a stronger community by providing individuals with opportunities for ownership and active participation in the network they help build, enhancing resilience and driving innovation and growth.
+
+## The Overall Workflow
+
+<img
+  className="block dark:hidden"
+  src="/images/dispatch-simple.png"
+  alt="Hero Light"
+/>
+
+1. Job workers register at job manager
+2. Job publishers publish jobs to job manager
+3. Job managers dispatch task to job workers
+4. Job workers process the task and submit the job results
+5. Job managers aggregate the results and send back the claims
+6. Job workers settle the claims per their needs
+
+### Job Dispatching
+
+<img
+  className="block dark:hidden"
+  src="/images/job-manager.png"
+  alt="Hero Light"
+/>
+
+### Reward Settlement
+The settlement process is straightforward. When a user completes a job and publishes the results, an aggregator checks for consistency between the results from different workers. If the workers reach a consensus on the final results, the aggregator signs a message and sends it to the user. This signed message serves as a coupon for points claims. The user can later submit a batch of these claims on-chain to claim their rewards.
+
+## Demo: Mining with MIZU Telegram Bot
+
+<iframe
+  width="560"
+  height="315"
+  src="https://youtube.com/embed/Sp5zAwniayQ?feature=share"
+  title="Telegram Bot Mining"
+  frameborder="0"
+  allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+  allowfullscreen
+></iframe>
