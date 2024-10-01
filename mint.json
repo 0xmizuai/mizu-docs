@@ -46,28 +46,25 @@
       ]
     },
     {
-      "group": "MIZU Data Repo",
+      "group": "MIZU Data DePIN",
       "pages": [
-        "data-repo/data-repo",
-        "data-repo/data-centric-app",
-        "data-repo/data-generation-validation"
+        "data-depin/depin-architecture",
+        "data-depin/data-validation",
+        "data-depin/data-centric-app"
       ]
     },
     {
-      "group": "MIZU Data Processing Network",
+      "group": "MIZU Edge Network",
       "pages": [
-        "data-network/architecture",
-        "data-network/mining",
-        "data-network/workflow",
-        "data-network/nostr"
+        "edge-network/overview",
+        "edge-network/mining",
+        "edge-network/nostr"
       ]
     },
     {
       "group": "Cookbook",
       "pages": [
-        "cookbook/data-repo",
-        "cookbook/data-bounty",
-        "cookbook/marketplace"
+        "cookbook/data-repo"
       ]
     },
     {
