@@ -68,6 +68,12 @@
       ]
     },
     {
+      "group": "Misc",
+      "pages": [
+        "misc/privacy-policy"
+      ]
+    },
+    {
       "group": "Tech Reference",
       "pages": [
         "reference/overview"
